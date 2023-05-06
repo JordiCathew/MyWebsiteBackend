@@ -6,6 +6,18 @@ const cors = require("cors");
 
 const app = express();
 app.use(cors());
+
+// Allow requests only from specified origin
+app.use(function(req, res, next) {
+  const allowedOrigins = ["https://jordicathew.com"];
+  const origin = req.headers.origin;
+  if (allowedOrigins.indexOf(origin) > -1) {
+      next(); 
+  } else {
+    res.status(403).send("Access denied");
+  }
+});
+
 mongoose.connect(process.env.MONGO_CONNECTION);
 
 const postSchema = new mongoose.Schema({
@@ -26,8 +38,7 @@ const postSchema = new mongoose.Schema({
 const Post = mongoose.model("Post", postSchema);
 
 app.get("/", (req, res) => {
-  console.log("Hello from Firebase!");
-  res.send("Hello from Firebase!");
+  res.send("You're connected ;).");
 });
 
 // The async/await syntax is used here to make the database query asynchronous,
