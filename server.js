@@ -2,8 +2,10 @@ require('dotenv').config();
 const express = require('express');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 mongoose.connect(process.env.MONGO_CONNECTION);
 
 const postSchema = new mongoose.Schema({
