@@ -34,7 +34,7 @@ or
 app.get('/api/:postsId', async (req, res) => { ...
 
 ```
-In the first case the whole lists of posts is sent to the frontend (to _Blog.jsx_ precisely), in the second case only the specific post required gets sent (to _TemplatePosts.jsx_). If an error occurs inside one of these cases, an error status is sent to the frontend.
+In the first case the whole list of posts is sent to the frontend (to _Blog.jsx_ precisely), in the second case only the specific post required gets sent (to _TemplatePosts.jsx_). If an error occurs inside one of these cases, an error status is sent to the frontend.
 
 ## License
 
