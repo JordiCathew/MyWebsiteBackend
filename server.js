@@ -9,7 +9,7 @@ app.use(cors());
 
 // Allow requests only from specified origin
 app.use(function(req, res, next) {
-  const allowedOrigins = ["https://jordicathew.com"];
+  const allowedOrigins = ["http://localhost:3000"];
   const origin = req.headers.origin;
   if (allowedOrigins.indexOf(origin) > -1) {
       next(); 
